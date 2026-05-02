@@ -1,7 +1,7 @@
 import type { Availability, CartItem, LocalOrder, ReservationRequest } from "@/lib/types";
 import type { Language } from "@/lib/i18n";
 
-export const WHATSAPP_NUMBER = "905376781196";
+export const WHATSAPP_NUMBER = "905317818795";
 
 export function formatTry(value: number, language: Language = "fr") {
   const locale = { fr: "fr-FR", en: "en-US", tr: "tr-TR" }[language];

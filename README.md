@@ -66,7 +66,7 @@ Ouvrir `http://localhost:3000`.
 ## Variables d’environnement
 
 ```bash
-NEXT_PUBLIC_WHATSAPP_NUMBER=905376781196
+NEXT_PUBLIC_WHATSAPP_NUMBER=905317818795
 NEXT_PUBLIC_AFRO_IZMIR_HUB_URL=https://afroizmirhub.example
 ```
 
@@ -74,7 +74,7 @@ NEXT_PUBLIC_AFRO_IZMIR_HUB_URL=https://afroizmirhub.example
 
 1. Pousser le projet sur GitHub.
 2. Importer le dépôt dans Vercel.
-3. Ajouter `NEXT_PUBLIC_WHATSAPP_NUMBER=905376781196`.
+3. Ajouter `NEXT_PUBLIC_WHATSAPP_NUMBER=905317818795`.
 4. Déployer.
 5. Vérifier les pages principales et un parcours complet: boutique ou menu, panier, confirmation, WhatsApp.
 
