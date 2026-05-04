@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/react";
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { Inter } from "next/font/google";
@@ -36,7 +37,9 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
             <BottomNav />
           </CartProvider>
         </I18nProvider>
+        <Analytics />
       </body>
     </html>
+
   );
 }
