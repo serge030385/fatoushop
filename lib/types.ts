@@ -7,6 +7,7 @@ export type ProductCategory =
   | "Farines & féculents"
   | "Conserves africaines"
   | "Boissons africaines"
+  | "Mèches et perruques"
   | "Produits sur commande";
 
 export type DishCategory =
