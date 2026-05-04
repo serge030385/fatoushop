@@ -12,7 +12,12 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "FatouShop | Boutique africaine et cuisine camerounaise à Izmir",
-  description: "Produits africains, cuisine camerounaise, bar sans alcool et réservations à Izmir."
+  description: "Produits africains, cuisine camerounaise, bar sans alcool et réservations à Izmir.",
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/apple-icon.png"
+  }
 };
 
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
