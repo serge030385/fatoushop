@@ -100,7 +100,21 @@ export const fr = {
         "Enfin des produits africains faciles à commander à Izmir."
       ],
       ctaEyebrow: "Commande rapide",
-      ctaTitle: "Besoin d’un produit ou d’un plat aujourd’hui ?"
+      ctaTitle: "Besoin d’un produit ou d’un plat aujourd’hui ?",
+      specialtiesTitle: "Découvrez nos spécialités africaines",
+      specialtiesOrder: "Commander",
+      specialtiesGoTo: "Voir la spécialité",
+      specialties: {
+        ndole: { name: "Ndolè", description: "Un classique camerounais aux arachides, servi avec plantain et poisson." },
+        "poisson-braise": { name: "Poisson braisé", description: "Poisson mariné et grillé, généreux, parfumé et prêt à partager." },
+        "poulet-dg": { name: "Poulet DG", description: "Poulet sauté avec légumes et plantain, grand favori maison." },
+        "plantain-frit": { name: "Plantain frit", description: "Plantain doré, doux et croustillant, parfait en accompagnement." },
+        "riz-arachide": { name: "Riz sauce arachide", description: "Riz blanc et sauce arachide onctueuse, simple et réconfortant." },
+        "attieke-poisson": { name: "Attiéké poisson", description: "Semoule de manioc légère avec poisson, légumes et sauce relevée." },
+        "grillades-africaines": { name: "Grillades africaines", description: "Brochettes et viandes grillées, épices africaines et cuisson feu." },
+        alloco: { name: "Alloco", description: "Plantain frit façon ouest-africaine, gourmand et convivial." },
+        mafe: { name: "Mafé", description: "Sauce arachide africaine, riche et parfumée, servie avec riz." }
+      }
     },
     shop: {
       eyebrow: "Boutique africaine",

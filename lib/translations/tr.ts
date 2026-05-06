@@ -100,7 +100,21 @@ export const tr = {
         "İzmir’de Afrika ürünleri sipariş etmek sonunda kolay."
       ],
       ctaEyebrow: "Hızlı sipariş",
-      ctaTitle: "Bugün bir ürüne veya yemeğe mi ihtiyacınız var?"
+      ctaTitle: "Bugün bir ürüne veya yemeğe mi ihtiyacınız var?",
+      specialtiesTitle: "Afrika spesiyallerimizi keşfedin",
+      specialtiesOrder: "Sipariş ver",
+      specialtiesGoTo: "Spesiyali gör",
+      specialties: {
+        ndole: { name: "Ndolè", description: "Yer fıstıklı Kamerun klasiği, plantain ve balıkla servis edilir." },
+        "poisson-braise": { name: "Izgara balık", description: "Marine edilmiş ızgara balık, bol, aromalı ve paylaşmalık." },
+        "poulet-dg": { name: "Poulet DG", description: "Sebze ve plantain ile sotelenmiş tavuk, evin favorilerinden." },
+        "plantain-frit": { name: "Kızarmış plantain", description: "Altın renkli, tatlı ve çıtır plantain; mükemmel yan lezzet." },
+        "riz-arachide": { name: "Yer fıstığı soslu pilav", description: "Beyaz pilav ve kremamsı yer fıstığı sosu, sade ve doyurucu." },
+        "attieke-poisson": { name: "Attiéké balık", description: "Balık, sebze ve acılı sosla hafif manioc kuskusu." },
+        "grillades-africaines": { name: "Afrika ızgaraları", description: "Afrika baharatlı şişler ve ızgara etler." },
+        alloco: { name: "Alloco", description: "Batı Afrika usulü kızarmış plantain, lezzetli ve paylaşmalık." },
+        mafe: { name: "Mafé", description: "Pilavla servis edilen zengin ve aromalı Afrika yer fıstığı sosu." }
+      }
     },
     shop: {
       eyebrow: "Afrika dükkanı",

@@ -100,7 +100,21 @@ export const en = {
         "Finally, African products are easy to order in Izmir."
       ],
       ctaEyebrow: "Quick order",
-      ctaTitle: "Need a product or a dish today?"
+      ctaTitle: "Need a product or a dish today?",
+      specialtiesTitle: "Discover our African specialties",
+      specialtiesOrder: "Order",
+      specialtiesGoTo: "View specialty",
+      specialties: {
+        ndole: { name: "Ndolè", description: "A Cameroonian classic with peanuts, served with plantain and fish." },
+        "poisson-braise": { name: "Grilled fish", description: "Marinated grilled fish, generous, fragrant and made to share." },
+        "poulet-dg": { name: "Poulet DG", description: "Chicken sauteed with vegetables and plantain, a house favorite." },
+        "plantain-frit": { name: "Fried plantain", description: "Golden, sweet and crispy plantain, perfect as a side." },
+        "riz-arachide": { name: "Rice with peanut sauce", description: "White rice with creamy peanut sauce, simple and comforting." },
+        "attieke-poisson": { name: "Attiéké fish", description: "Light cassava couscous with fish, vegetables and spicy sauce." },
+        "grillades-africaines": { name: "African grills", description: "Skewers and grilled meats with African spices and flame cooking." },
+        alloco: { name: "Alloco", description: "West African fried plantain, generous and perfect to share." },
+        mafe: { name: "Mafé", description: "Rich and fragrant African peanut sauce served with rice." }
+      }
     },
     shop: {
       eyebrow: "African shop",

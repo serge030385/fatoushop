@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { Bike, Martini, ShoppingBag, Star, Utensils } from "lucide-react";
 import { HeroSection } from "@/components/hero-section";
+import { SpecialtiesCarousel } from "@/components/specialties-carousel";
 import { WhatsAppButton } from "@/components/whatsapp-button";
 import { useI18n } from "@/lib/i18n";
 
@@ -14,6 +15,7 @@ export default function HomePage() {
   return (
     <main>
       <HeroSection />
+      <SpecialtiesCarousel />
 
       <section className="px-4 py-8 md:px-6">
         <div className="mx-auto grid max-w-6xl gap-4 sm:grid-cols-2 lg:grid-cols-4">
