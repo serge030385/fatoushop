@@ -1,12 +1,19 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
-import { CalendarDays, MessageCircle, ShoppingBag, Utensils } from "lucide-react";
+import { useState } from "react";
+import { CalendarDays, ShoppingBag, Utensils } from "lucide-react";
 import { WhatsAppButton } from "@/components/whatsapp-button";
 import { useI18n } from "@/lib/i18n";
+import { commonsImage } from "@/lib/media";
+
+const heroImageUrl = commonsImage("Plat de Ndolè avec Plantains Tapés Frits +Poisson Frit.jpg");
+const heroImageAlt = "Cuisine africaine avec ndolè, poisson braisé et plantain";
 
 export function HeroSection() {
   const { t } = useI18n();
+  const [imageFailed, setImageFailed] = useState(false);
   const actions = [
     { href: "/boutique", label: t.pages.home.shopButton, icon: ShoppingBag, className: "bg-cocoa text-cream" },
     { href: "/menu-camerounais", label: t.pages.home.menuButton, icon: Utensils, className: "bg-palm text-white" },
@@ -45,19 +52,37 @@ export function HeroSection() {
             />
           </div>
         </div>
-        <div className="relative min-h-[22rem] bg-gradient-to-br from-cocoa via-earth to-orange p-5 text-cream">
-          <div className="absolute inset-0 afro-pattern opacity-25" />
-          <div className="relative flex h-full flex-col justify-between rounded-lg border border-cream/20 p-5">
-            <div className="grid grid-cols-2 gap-3">
-              {["🌿", "🍗", "🍹", "🛍️"].map((emoji, index) => (
-                <div key={emoji} className="grid aspect-square place-items-center rounded-lg bg-cream/12 text-5xl backdrop-blur">
-                  <span role="img" aria-label={`Ambiance FatouShop ${index + 1}`}>{emoji}</span>
+        <div className="p-4 md:p-5">
+          <div className="relative min-h-[22rem] overflow-hidden rounded-lg bg-gradient-to-br from-cocoa via-earth to-orange text-cream shadow-soft lg:h-full">
+            {!imageFailed ? (
+              <Image
+                src={heroImageUrl}
+                alt={heroImageAlt}
+                fill
+                priority
+                unoptimized
+                sizes="(max-width: 1024px) 100vw, 46vw"
+                className="object-cover"
+                onError={() => setImageFailed(true)}
+              />
+            ) : (
+              <div className="absolute inset-0 grid place-items-center bg-gradient-to-br from-cocoa via-earth to-orange">
+                <div className="absolute inset-0 afro-pattern opacity-25" />
+                <div className="relative grid grid-cols-2 gap-3 p-8">
+                  {["🌿", "🐟", "🍌", "🍗"].map((emoji, index) => (
+                    <div key={emoji} className="grid aspect-square min-h-24 place-items-center rounded-lg bg-cream/12 text-5xl backdrop-blur">
+                      <span role="img" aria-label={`Cuisine africaine FatouShop ${index + 1}`}>{emoji}</span>
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
-            <div>
-              <p className="text-3xl font-black">{t.pages.home.heroCardTitle}</p>
-              <p className="mt-3 text-sm font-bold text-cream/75">{t.pages.home.heroCardText}</p>
+              </div>
+            )}
+            <div className="absolute inset-0 bg-gradient-to-t from-cocoa/70 via-cocoa/10 to-transparent" />
+            <div className="absolute inset-x-0 bottom-0 p-5 md:p-6">
+              <div className="max-w-sm rounded-lg border border-cream/20 bg-cocoa/55 p-4 backdrop-blur">
+                <p className="text-2xl font-black">{t.pages.home.heroCardTitle}</p>
+                <p className="mt-2 text-sm font-bold text-cream/80">{t.pages.home.heroCardText}</p>
+              </div>
             </div>
           </div>
         </div>
