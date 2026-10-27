@@ -6,14 +6,19 @@ import { CartProvider } from "@/components/cart-provider";
 import { BottomNav } from "@/components/bottom-nav";
 import { SiteHeader } from "@/components/site-header";
 import { WhatsAppButton } from "@/components/whatsapp-button";
+import { WHATSAPP_NUMBER } from "@/lib/format";
 import { I18nProvider } from "@/lib/i18n";
+import { pageMetadata, SITE_URL, SOCIAL_IMAGE } from "@/lib/seo";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "FatouShop | Boutique africaine et cuisine camerounaise à Izmir",
-  description: "Produits africains, cuisine camerounaise, bar sans alcool et réservations à Izmir.",
+  ...pageMetadata("/"),
+  metadataBase: new URL(SITE_URL),
+  verification: process.env.GOOGLE_SITE_VERIFICATION
+    ? { google: process.env.GOOGLE_SITE_VERIFICATION }
+    : undefined,
   icons: {
     icon: "/favicon.ico",
     shortcut: "/favicon.ico",
@@ -21,10 +26,35 @@ export const metadata: Metadata = {
   }
 };
 
+const localBusinessJsonLd = {
+  "@context": "https://schema.org",
+  "@type": ["LocalBusiness", "Restaurant", "Store"],
+  "@id": `${SITE_URL}/#business`,
+  name: "FatouShop",
+  alternateName: "Fatou Restaurant & Bar",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Izmir",
+    addressCountry: "TR"
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 38.6068,
+    longitude: 27.06669
+  },
+  url: SITE_URL,
+  image: new URL(SOCIAL_IMAGE, SITE_URL).toString(),
+  telephone: `+${WHATSAPP_NUMBER}`
+};
+
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
   return (
     <html lang="fr">
       <body className={`${inter.className} antialiased`}>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd).replace(/</g, "\\u003c") }}
+        />
         <I18nProvider>
           <CartProvider>
             <SiteHeader />

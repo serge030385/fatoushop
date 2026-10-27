@@ -5,6 +5,7 @@ import { PageHeader } from "@/components/page-header";
 import { WhatsAppButton } from "@/components/whatsapp-button";
 import { WHATSAPP_NUMBER } from "@/lib/format";
 import { useI18n } from "@/lib/i18n";
+import { GoogleMapEmbed } from "@/src/components/GoogleMapEmbed";
 
 export default function ContactPage() {
   const { t } = useI18n();
@@ -44,6 +45,7 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
+      <GoogleMapEmbed />
     </main>
   );
 }

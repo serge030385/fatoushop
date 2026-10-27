@@ -6,9 +6,9 @@ import { useState } from "react";
 import { CalendarDays, ShoppingBag, Utensils } from "lucide-react";
 import { WhatsAppButton } from "@/components/whatsapp-button";
 import { useI18n } from "@/lib/i18n";
-import { commonsImage } from "@/lib/media";
+import { HERO_IMAGE } from "@/lib/seo";
 
-const heroImageUrl = commonsImage("Plat de Ndolè avec Plantains Tapés Frits +Poisson Frit.jpg");
+const heroImageUrl = HERO_IMAGE;
 const heroImageAlt = "Cuisine africaine avec ndolè, poisson braisé et plantain";
 
 export function HeroSection() {
@@ -60,8 +60,7 @@ export function HeroSection() {
                 alt={heroImageAlt}
                 fill
                 priority
-                unoptimized
-                sizes="(max-width: 1024px) 100vw, 46vw"
+                sizes="(max-width: 1023px) calc(100vw - 72px), (max-width: 1200px) 44vw, 500px"
                 className="object-cover"
                 onError={() => setImageFailed(true)}
               />

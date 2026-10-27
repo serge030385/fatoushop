@@ -1,0 +1,9 @@
+FatouShop hero and social sharing image
+
+Author: Ishtar19
+Source: https://commons.wikimedia.org/wiki/File:Plat_de_Ndol%C3%A8_avec_Plantains_Tap%C3%A9s_Frits_%2BPoisson_Frit.jpg
+License: Creative Commons Attribution-ShareAlike 4.0 International
+License URL: https://creativecommons.org/licenses/by-sa/4.0/
+Changes: resized and converted to WebP (ndole-hero.webp); resized,
+cropped to 1200 x 630 and compressed as JPEG (fatoushop-social.jpg).
+These adapted images are distributed under the same CC BY-SA 4.0 license.

@@ -6,12 +6,13 @@ import { MessageCircle } from "lucide-react";
 import { formatTry, whatsappUrl } from "@/lib/format";
 import { commonsImage } from "@/lib/media";
 import { useI18n } from "@/lib/i18n";
+import { HERO_IMAGE } from "@/lib/seo";
 
 const specialties = [
   {
     id: "ndole",
     priceTry: 320,
-    imageUrl: commonsImage("Plat de Ndolè avec Plantains Tapés Frits +Poisson Frit.jpg"),
+    imageUrl: HERO_IMAGE,
     imageAlt: "Ndolè camerounais avec poisson et plantain"
   },
   {
@@ -68,26 +69,37 @@ export function SpecialtiesCarousel() {
   const { t, language } = useI18n();
   const [active, setActive] = useState(0);
   const [paused, setPaused] = useState(false);
+  const [reducedMotion, setReducedMotion] = useState(true);
   const [failedImages, setFailedImages] = useState<Record<string, boolean>>({});
   const scrollerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (paused) return;
+    const preference = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const update = () => setReducedMotion(preference.matches);
+    update();
+    preference.addEventListener("change", update);
+    return () => preference.removeEventListener("change", update);
+  }, []);
+
+  useEffect(() => {
+    if (paused || reducedMotion) return;
     const timer = window.setInterval(() => {
-      setActive((current) => {
-        const next = (current + 1) % specialties.length;
-        scrollToCard(next);
-        return next;
-      });
+      const scroller = scrollerRef.current;
+      if (!scroller) return;
+      const step = (scroller.firstElementChild?.getBoundingClientRect().width ?? 0) + 16;
+      const atEnd = scroller.scrollLeft >= scroller.scrollWidth - scroller.clientWidth - 2;
+      scroller.scrollTo({ left: atEnd ? 0 : scroller.scrollLeft + step, behavior: "smooth" });
     }, 3600);
     return () => window.clearInterval(timer);
-  }, [paused]);
+  }, [paused, reducedMotion]);
 
   function scrollToCard(index: number) {
     const scroller = scrollerRef.current;
     const card = scroller?.children.item(index) as HTMLElement | null;
     if (!scroller || !card) return;
-    scroller.scrollTo({ left: card.offsetLeft - 16, behavior: "smooth" });
+    const padding = Number.parseFloat(window.getComputedStyle(scroller).paddingLeft) || 0;
+    const left = scroller.scrollLeft + card.getBoundingClientRect().left - scroller.getBoundingClientRect().left - padding;
+    scroller.scrollTo({ left, behavior: reducedMotion ? "instant" : "smooth" });
   }
 
   function selectCard(index: number) {
@@ -111,7 +123,7 @@ export function SpecialtiesCarousel() {
                 key={item.id}
                 type="button"
                 onClick={() => selectCard(index)}
-                className={`h-2.5 rounded-full transition-all ${active === index ? "w-8 bg-orange" : "w-2.5 bg-cocoa/20"}`}
+                className={`h-2.5 rounded-full transition-all motion-reduce:transition-none ${active === index ? "w-8 bg-orange" : "w-2.5 bg-cocoa/20"}`}
                 aria-label={`${t.pages.home.specialtiesGoTo} ${index + 1}`}
               />
             ))}
@@ -122,12 +134,16 @@ export function SpecialtiesCarousel() {
           ref={scrollerRef}
           onMouseEnter={() => setPaused(true)}
           onMouseLeave={() => setPaused(false)}
+          onFocusCapture={() => setPaused(true)}
+          onBlurCapture={(event) => {
+            if (!event.currentTarget.contains(event.relatedTarget as Node | null)) setPaused(false);
+          }}
           onScroll={(event) => {
             const target = event.currentTarget;
-            const width = target.firstElementChild?.clientWidth || 1;
+            const width = (target.firstElementChild?.getBoundingClientRect().width || 1) + 16;
             setActive(Math.round(target.scrollLeft / width) % specialties.length);
           }}
-          className="-mx-4 flex snap-x gap-4 overflow-x-auto px-4 pb-3 scroll-smooth [scrollbar-width:none] md:mx-0 md:px-0 [&::-webkit-scrollbar]:hidden"
+          className="-mx-4 flex snap-x gap-4 overflow-x-auto px-4 pb-3 scroll-smooth motion-reduce:scroll-auto [scrollbar-width:none] md:mx-0 md:px-0 [&::-webkit-scrollbar]:hidden"
         >
           {specialties.map((item) => {
             const copy = t.pages.home.specialties[item.id];
@@ -143,9 +159,8 @@ export function SpecialtiesCarousel() {
                       src={item.imageUrl}
                       alt={item.imageAlt}
                       fill
-                      unoptimized
                       sizes="(max-width: 640px) 84vw, (max-width: 1024px) 48vw, 32vw"
-                      className="object-cover transition-transform duration-700 hover:scale-105"
+                      className="object-cover transition-transform duration-700 hover:scale-105 motion-reduce:transform-none motion-reduce:transition-none"
                       onError={() => setFailedImages((current) => ({ ...current, [item.id]: true }))}
                     />
                   ) : (

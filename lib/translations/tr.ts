@@ -47,6 +47,13 @@ export const tr = {
     delivery: "Teslimat",
     reservation: "Restoran rezervasyonu"
   },
+  location: {
+    eyebrow: "Konum",
+    city: "İzmir, Türkiye",
+    gps: "GPS koordinatları",
+    open: "Google Haritalar’da aç",
+    directions: "Yol tarifi al"
+  },
   forms: {
     name: "Ad",
     whatsappPhone: "WhatsApp telefonu",

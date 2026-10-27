@@ -47,6 +47,13 @@ export const en = {
     delivery: "Delivery",
     reservation: "Restaurant booking"
   },
+  location: {
+    eyebrow: "Location",
+    city: "Izmir, Turkey",
+    gps: "GPS coordinates",
+    open: "Open in Google Maps",
+    directions: "Get directions"
+  },
   forms: {
     name: "Name",
     whatsappPhone: "WhatsApp phone",

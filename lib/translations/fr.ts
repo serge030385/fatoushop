@@ -47,6 +47,13 @@ export const fr = {
     delivery: "Livraison",
     reservation: "Réservation restaurant"
   },
+  location: {
+    eyebrow: "Localisation",
+    city: "Izmir, Turquie",
+    gps: "Coordonnées GPS",
+    open: "Ouvrir dans Google Maps",
+    directions: "Obtenir l’itinéraire"
+  },
   forms: {
     name: "Nom",
     whatsappPhone: "Téléphone WhatsApp",

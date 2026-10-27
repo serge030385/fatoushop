@@ -6,6 +6,7 @@ import { HeroSection } from "@/components/hero-section";
 import { SpecialtiesCarousel } from "@/components/specialties-carousel";
 import { WhatsAppButton } from "@/components/whatsapp-button";
 import { useI18n } from "@/lib/i18n";
+import { GoogleMapEmbed } from "@/src/components/GoogleMapEmbed";
 
 export default function HomePage() {
   const { t } = useI18n();
@@ -31,6 +32,8 @@ export default function HomePage() {
           })}
         </div>
       </section>
+
+      <GoogleMapEmbed />
 
       <section className="px-4 py-8 md:px-6">
         <div className="mx-auto grid max-w-6xl gap-4 lg:grid-cols-[0.85fr_1.15fr]">
